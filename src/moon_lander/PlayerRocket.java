@@ -7,7 +7,10 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -128,33 +131,27 @@ public class PlayerRocket extends Entity {
      */
     public void Update()
     {
-        int speed = 0;
+        speed *= friction;
         Vector2D moveVector = new Vector2D();
         // Calculating speed for moving up or down.
         if(Canvas.keyboardKeyState(KeyEvent.VK_W)) {
-            speed += -speedAccelerating;
+            speed -= speedAccelerating;
         }
 
         if(Canvas.keyboardKeyState(KeyEvent.VK_S)) {
-            speed -= -speedAccelerating;
+            speed += speedStopping;
+            if(speed > 0) speed = 0;
         }
 
-        if(Canvas.keyboardKeyState(KeyEvent.VK_SPACE)) {
-            velocity.set(0, 0);
-        }
-        
         // Calculating speed for moving or stopping to the left.
-        if(Canvas.keyboardKeyState(KeyEvent.VK_A))
+        if(Canvas.keyboardKeyState(KeyEvent.VK_A)) {
             angle.turnLeft();
+        }
 
         // Calculating speed for moving or stopping to the right.
-        if(Canvas.keyboardKeyState(KeyEvent.VK_D))
+        if(Canvas.keyboardKeyState(KeyEvent.VK_D)) {
             angle.turnRight();
-
-        moveVector.setX( -(int)(speed * angle.sin()) );
-        moveVector.setY( (int)(speed * angle.cos()) );
-
-        velocity.add(moveVector);
+        }
 
         super.Update();
     }
@@ -165,7 +162,8 @@ public class PlayerRocket extends Entity {
         g2d.drawString("Rocket coordinates: " + getX() + ", " + getY(), 5, 15);
         g2d.drawString("Rocket Angle: " + angle.getAngle(), 5, 35);
         g2d.drawString("Rocket Velocity: " + velocity.getX() + ", " + velocity.getY(), 5, 55);
-        
+        g2d.drawString("Rocket Speed: " + speed, 5, 75);
+
         // If the rocket is landed.
         if(landed)
         {
@@ -190,6 +188,7 @@ public class PlayerRocket extends Entity {
                         null
                 );
             g2d.drawImage(rocketImg, getX(), getY(), null);
+            g2d.rotate(0);
         }
     }
     

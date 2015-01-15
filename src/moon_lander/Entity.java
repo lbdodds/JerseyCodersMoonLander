@@ -12,10 +12,14 @@ import java.util.Random;
  */
 public class Entity {
 
+    protected double friction = 1;
+
     protected Random random;
     protected Angle angle;
     protected Vector2D position;
     protected Vector2D velocity;
+
+    protected double speed;
 
     protected int width;
     protected int height;
@@ -28,11 +32,13 @@ public class Entity {
 
         width = 0;
         height = 0;
+        speed = 0.0;
     }
 
     public void reset() {
         angle = new Angle();
         position = new Vector2D();
+        speed = 0.0;
         velocity = new Vector2D();
     }
 
@@ -57,6 +63,9 @@ public class Entity {
     }
 
     public void Update() {
+        int moveX = -(int)(speed * angle.sin());
+        int moveY = (int)(speed * angle.cos());
+        velocity.set(moveX, moveY);
         position.add(velocity);
     }
 
