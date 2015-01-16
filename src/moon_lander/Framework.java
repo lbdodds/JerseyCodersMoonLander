@@ -133,6 +133,8 @@ public class Framework extends Canvas {
         while(true)
         {
             beginTime = System.nanoTime();
+            frameWidth = this.getWidth();
+            frameHeight = this.getHeight();
             
             switch (gameState)
             {
