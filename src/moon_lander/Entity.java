@@ -64,8 +64,8 @@ public class Entity {
     }
 
     public void Update() {
-        int moveX = -(int)(speed * angle.sin());
-        int moveY = (int)(speed * angle.cos());
+        int moveX = (int)(speed * angle.sin());
+        int moveY = -(int)(speed * angle.cos());
         velocity.add(moveX, moveY);
         position.add(velocity);
     }

@@ -133,15 +133,14 @@ public class PlayerRocket extends Entity {
     public void Update()
     {
         speed *= friction;
-        Vector2D moveVector = new Vector2D();
         // Calculating speed for moving up or down.
         if(Canvas.keyboardKeyState(KeyEvent.VK_W)) {
-            speed -= speedAccelerating / weight;
+            speed += speedAccelerating / weight;
         }
 
         if(Canvas.keyboardKeyState(KeyEvent.VK_S)) {
-            speed += speedStopping;
-            if(speed > 0) speed = 0;
+            speed -= speedStopping;
+            if(speed < 0) speed = 0;
         }
 
         // Calculating speed for moving or stopping to the left.
