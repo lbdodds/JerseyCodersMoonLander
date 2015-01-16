@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Entity {
 
-    protected double friction = 1;
+    protected double friction = 0.5;
 
     protected Random random;
     protected Angle angle;
@@ -66,7 +66,7 @@ public class Entity {
     public void Update() {
         int moveX = -(int)(speed * angle.sin());
         int moveY = (int)(speed * angle.cos());
-        velocity.set(moveX, moveY);
+        velocity.add(moveX, moveY);
         position.add(velocity);
     }
 
