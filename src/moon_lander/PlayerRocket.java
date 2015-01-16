@@ -85,6 +85,7 @@ public class PlayerRocket extends Entity {
         speedAccelerating = 2;
         speedStopping = 1;
         topLandingSpeed = 5;
+        weight = 1.5;
     }
     
     private void LoadContent()
@@ -135,7 +136,7 @@ public class PlayerRocket extends Entity {
         Vector2D moveVector = new Vector2D();
         // Calculating speed for moving up or down.
         if(Canvas.keyboardKeyState(KeyEvent.VK_W)) {
-            speed -= speedAccelerating;
+            speed -= speedAccelerating / weight;
         }
 
         if(Canvas.keyboardKeyState(KeyEvent.VK_S)) {

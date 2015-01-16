@@ -20,6 +20,7 @@ public class Entity {
     protected Vector2D velocity;
 
     protected double speed;
+    protected double weight;
 
     protected int width;
     protected int height;
