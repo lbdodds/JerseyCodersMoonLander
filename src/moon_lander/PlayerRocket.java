@@ -37,11 +37,11 @@ public class PlayerRocket extends Entity {
     /**
      * Accelerating speed of the rocket.
      */
-    private int speedAccelerating;
+    private double speedAccelerating;
     /**
      * Stopping/Falling speed of the rocket. Falling speed because, the gravity pulls the rocket down to the moon.
      */
-    private int speedStopping;
+    private double speedStopping;
     
     /**
      * Maximum speed that rocket can have without having a crash when landing.
@@ -82,8 +82,8 @@ public class PlayerRocket extends Entity {
         
         ResetPlayer();
         
-        speedAccelerating = 2;
-        speedStopping = 1;
+        speedAccelerating = 1;
+        speedStopping = 0.5;
         topLandingSpeed = 5;
         weight = 1.5;
     }
