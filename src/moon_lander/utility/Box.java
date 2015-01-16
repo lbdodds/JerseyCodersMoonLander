@@ -1,4 +1,4 @@
-package moon_lander.attributes;
+package moon_lander.utility;
 
 /**
  * Created by Liam Dodds on 14/01/2015.

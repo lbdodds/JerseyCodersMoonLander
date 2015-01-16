@@ -1,16 +1,12 @@
 package moon_lander;
 
-import moon_lander.attributes.Angle;
-import moon_lander.attributes.Vector2D;
+import moon_lander.utility.Vector2D;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;

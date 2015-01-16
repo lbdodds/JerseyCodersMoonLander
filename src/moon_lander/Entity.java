@@ -1,8 +1,8 @@
 package moon_lander;
 
-import moon_lander.attributes.Angle;
-import moon_lander.attributes.Box;
-import moon_lander.attributes.Vector2D;
+import moon_lander.utility.Angle;
+import moon_lander.utility.Box;
+import moon_lander.utility.Vector2D;
 
 import java.awt.*;
 import java.util.Random;

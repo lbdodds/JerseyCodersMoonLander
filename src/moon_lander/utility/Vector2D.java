@@ -1,6 +1,4 @@
-package moon_lander.attributes;
-
-import java.util.Vector;
+package moon_lander.utility;
 
 /**
  * Created by Liam Dodds on 14/01/2015.
